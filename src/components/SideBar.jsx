@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function SideBar() {
   return (
@@ -8,9 +9,9 @@ function SideBar() {
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="drawer-button cursor-pointer p-4 lg:hidden"
         >
-          Open drawer
+          <GiHamburgerMenu className="text-xl" />
         </label>
       </div>
       <div className="drawer-side">
@@ -19,7 +20,7 @@ function SideBar() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="dashboard p-4 w-80 min-h-full bg-gray-700 font-semibold text-lg">
+        <ul className="dashboard p-4 w-52 md:w-80 min-h-full bg-gray-700 font-semibold text-xs md:text-sm lg:text-lg">
           {/* Sidebar content here */}
           <li className="mt-1">
             <div className="">

@@ -21,7 +21,9 @@ const Footer = ({ className }) => {
           </div>
         </div>
         <div className="mt-4 md:mt-8">
-          <p>&copy; {new Date().getFullYear()} JobZen. All Rights Reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} MetroShelter. All Rights Reserved.
+          </p>
         </div>
         <div className="mt-4">
           <p>Mail : minhajul.arefin.fahim@gmail.com</p>

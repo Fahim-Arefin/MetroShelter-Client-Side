@@ -19,6 +19,8 @@ import WishList from "./pages/WishList";
 import PropertyBrought from "./pages/PropertyBrought";
 import MyReviews from "./pages/MyReviews";
 
+import { HelmetProvider } from "react-helmet-async";
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -71,8 +73,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );
