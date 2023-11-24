@@ -8,6 +8,7 @@ import { MdAppRegistration } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 function App() {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
@@ -18,6 +19,7 @@ function App() {
 
   const [showPassword, setShowPassWord] = useState(false);
   const { signIn, successToast, errorToast, signInWithGoogle } = useAuth();
+  const axiosPublic = useAxiosPublic();
 
   const handleShowPassword = () => {
     setShowPassWord(!showPassword);
@@ -56,6 +58,20 @@ function App() {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        axiosPublic.get(`/users/${result?.user?.email}`).then((res) => {
+          if (!res.data) {
+            axiosPublic
+              .post("/users", {
+                userName: result?.user?.displayName,
+                email: result?.user?.email,
+                role: "user",
+              })
+              .then((res) => {
+                console.log("Created on mongodb", res.data);
+              });
+          }
+        });
         successToast("Email Password matched !!", 2000);
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");

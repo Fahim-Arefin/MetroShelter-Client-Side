@@ -7,6 +7,7 @@ import { MdAppRegistration } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 function App() {
   const [isFocusedName, setIsFocusedName] = useState(false);
@@ -19,6 +20,7 @@ function App() {
 
   const { createUser, updateUserInfo, successToast, errorToast } = useAuth();
   const [isLoading, setIsloading] = useState(false);
+  const axiosPublic = useAxiosPublic();
 
   const handleShowPassword = () => {
     setShowPassWord(!showPassword);
@@ -41,11 +43,26 @@ function App() {
           photoURL: data.photo,
         })
           .then(() => {
-            setIsloading(false);
-            successToast("Account created successfully", 2000);
-            setTimeout(() => {
-              navigate("/");
-            }, 3000);
+            // create user in mongodb
+            const userInfo = {
+              userName: data.name,
+              email: data.email,
+              role: "user",
+            };
+            axiosPublic
+              .post("/users", userInfo)
+              .then((res) => {
+                setIsloading(false);
+                console.log("Mongodb user collection", res.data);
+                successToast("Account created successfully", 2000);
+                setTimeout(() => {
+                  navigate("/");
+                }, 3000);
+              })
+              .catch((e) => {
+                setIsloading(false);
+                console.log(e);
+              });
           })
           .catch((error) => {
             console.log(error);
