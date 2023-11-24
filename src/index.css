@@ -3,3 +3,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.option-menu li a.active {
+  color: #f87060;
+  border-bottom-width: 2px;
+  border-bottom-color: #f87060;
+}
+
+.dashboard li a.active div {
+  background-color: #f87060;
+  color: white;
+}
+
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #1f2937 #ccc;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1f2937;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aea1ea;
+}

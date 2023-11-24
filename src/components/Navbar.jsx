@@ -16,7 +16,9 @@ function Navbar({ className }) {
         // console.log("Logged out");
         navigate("/login");
       })
-      .catch(() => {});
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
@@ -49,29 +51,20 @@ function Navbar({ className }) {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-              <NavLink to="/jobs">All Jobs</NavLink>
-            </li>
             {user && (
               <>
                 <li>
-                  <NavLink to="/applied-jobs">Applied Jobs</NavLink>
+                  <NavLink to="/properties">All Properties</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/add-jobs">Add A Job</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/my-jobs">My Jobs</NavLink>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
               </>
             )}
-            <li>
-              <NavLink to="/contact">Contact Us</NavLink>
-            </li>
           </ul>
         </div>
         <div className="text-xl tracking-widest font-bold flex items-center space-x-4 px-6 py-4 rounded-lg">
-          <div className="w-32 md:w-40 ">
+          <div className="w-32 md:w-44">
             <img className="w-full h-full" src="/logo.png" alt="" />
           </div>
           {/* <span className="bg-gradient-to-r from-yellow-500 to-orange-400 text-transparent bg-clip-text text-xl lg:text-2xl">
@@ -80,59 +73,35 @@ function Navbar({ className }) {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex ">
-        <ul className="option-menu flex space-x-4 text-zinc-800 text-lg">
+        <ul className="option-menu flex space-x-4 text-gray-700 text-lg tracking-wide">
           <li>
             <NavLink
-              className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
+              className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
               to="/"
             >
               Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
-              to="/jobs"
-            >
-              All Jobs
             </NavLink>
           </li>
           {user && (
             <>
               <li>
                 <NavLink
-                  className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
-                  to="/applied-jobs"
+                  className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
+                  to="/properties"
                 >
-                  Applied Jobs
+                  All properties
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
-                  to="/add-jobs"
+                  className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
+                  to="/dashboard"
                 >
-                  Add A Job
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
-                  to="/my-jobs"
-                >
-                  My Jobs
+                  Dashboard
                 </NavLink>
               </li>
             </>
           )}
-          <li>
-            <NavLink
-              className="cursor-pointer hover:bg-[#aea1ea] hover:text-white transition-all duration-150 px-3 py-2 rounded-md "
-              to="/contact"
-            >
-              Contact Us
-            </NavLink>
-          </li>
         </ul>
       </div>
       <div className="navbar-end">
@@ -193,7 +162,7 @@ function Navbar({ className }) {
               to="/login"
               primary
               outline
-              className="px-4 py-2.5 flex space-x-2"
+              className="px-4 py-2.5 flex space-x-2 rounded-sm"
             >
               <FiLogIn className="mt-[3px]" />
               <span>Log In</span>
