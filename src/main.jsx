@@ -18,8 +18,10 @@ import MyProfile from "./pages/MyProfile";
 import WishList from "./pages/WishList";
 import PropertyBrought from "./pages/PropertyBrought";
 import MyReviews from "./pages/MyReviews";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { HelmetProvider } from "react-helmet-async";
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -75,7 +77,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
       <AuthProvider>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>

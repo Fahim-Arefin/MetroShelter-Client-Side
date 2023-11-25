@@ -23,7 +23,7 @@ function Navbar({ className }) {
 
   return (
     <div
-      className={`sticky top-0 bg-white  z-50 px-12 mx-auto navbar ${className}`}
+      className={`sticky shadow-2xl top-0 bg-white  z-50 px-12 mx-auto navbar ${className}`}
       style={{ fontWeight: 500 }}
     >
       <div className="navbar-start">

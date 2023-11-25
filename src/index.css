@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #f6fcff;
+}
+
 .option-menu li a.active {
   color: #f87060;
   border-bottom-width: 2px;
@@ -12,7 +16,11 @@
 
 .dashboard li a.active div {
   background-color: #f87060;
-  color: white;
+  color: black;
+}
+.dashboard li a.active div {
+  background-color: #f87060;
+  color: black;
 }
 
 .overflow-x-auto {
@@ -35,5 +43,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #f87060;
+  background-color: #e84a5f;
 }

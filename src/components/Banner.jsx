@@ -10,14 +10,14 @@ function Banner() {
       <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 lg:space-y-4 z-20">
         <h1
           className="text-2xl md:text-3xl lg:text-5xl font-bold text-center
-          bg-gradient-to-r from-blue-500 via-purple-400 to-[#f87060] text-transparent bg-clip-text"
+          bg-gradient-to-r from-[#e84a5f] via-[#FFB06B] to-[#f87060] text-transparent bg-clip-text"
         >
           Turning Dreams into Addresses
         </h1>
 
         <span
           className="text-sm md:text-lg lg:text-xl font-semibold mx-5 text-center
-              bg-gradient-to-r from-[#f87060] to-[#FFB06B] text-transparent bg-clip-text "
+              bg-gradient-to-r from-[#FFB06B] to-[#e84a5f] text-transparent bg-clip-text "
         >
           - From House to Home, We Make the Difference
         </span>
@@ -27,7 +27,7 @@ function Banner() {
             type="text"
             name=""
             id=""
-            placeholder="search jobs"
+            placeholder="search properties"
           />
           <FiSearch className="absolute top-3 text-xl right-36" />
           <button
