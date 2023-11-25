@@ -18,9 +18,16 @@ import MyProfile from "./pages/MyProfile";
 import WishList from "./pages/WishList";
 import PropertyBrought from "./pages/PropertyBrought";
 import MyReviews from "./pages/MyReviews";
+import ManageProperties from "./pages/ManageProperties";
+import ManageUsers from "./pages/ManageUsers";
+import ManageReviews from "./pages/ManageReviews";
+import MySoldProperties from "./pages/MySoldProperties";
+import MyRequestedProperties from "./pages/MyRequestedProperties";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { HelmetProvider } from "react-helmet-async";
+import MyAddedProperties from "./pages/MyAddedProperties";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -41,6 +48,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
+      // user,admin,agent profile
       {
         path: "/dashboard",
         element: <Navigate to="/dashboard/profile" />,
@@ -49,6 +57,7 @@ const router = createBrowserRouter([
         path: "/dashboard/profile",
         element: <MyProfile />,
       },
+      // user
       {
         path: "/dashboard/wishlist",
         element: <WishList />,
@@ -60,6 +69,32 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/reviews",
         element: <MyReviews />,
+      },
+      //admin
+      {
+        path: "/dashboard/manage-properties",
+        element: <ManageProperties />,
+      },
+      {
+        path: "/dashboard/manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/dashboard/manage-reviews",
+        element: <ManageReviews />,
+      },
+      // agent
+      {
+        path: "/dashboard/my-added-properties",
+        element: <MyAddedProperties />,
+      },
+      {
+        path: "/dashboard/my-sold-properties",
+        element: <MySoldProperties />,
+      },
+      {
+        path: "/dashboard/my-requested-properties",
+        element: <MyRequestedProperties />,
       },
     ],
   },

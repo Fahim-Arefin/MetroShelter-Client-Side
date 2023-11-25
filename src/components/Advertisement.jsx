@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import usePropertyAPI from "../hooks/API/usePropertyAPI";
 import AdvertisementCard from "./AdvertisementCard";
+import Spinner from "./Spinner";
 
 function Advertisement() {
   const { fetchAllProperty } = usePropertyAPI();
   const {
-    // isPending,
+    isPending,
     // isError,
     data: properties,
     // error,
@@ -16,7 +17,7 @@ function Advertisement() {
 
   return (
     <div className="container mx-auto">
-      <div className=" space-y-2 px-24">
+      <div className="space-y-2 px-4 md:px-12 lg:px-24">
         <h5 className="text-sm font-semibold text-[#b4b4b4] tracking-wide">
           RECENT PROPERTIES
         </h5>
@@ -29,7 +30,8 @@ function Advertisement() {
           </h1>
         </div>
       </div>
-      <div className="my-12 grid grid-cols-3 gap-6 px-24">
+      {isPending && <Spinner />}
+      <div className="my-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-4 md:px-12 lg:px-24">
         {properties?.map((property) => (
           <AdvertisementCard key={property._id} property={property} />
         ))}

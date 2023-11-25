@@ -29,7 +29,7 @@ function Banner() {
             id=""
             placeholder="search properties"
           />
-          <FiSearch className="absolute top-3 text-xl right-36" />
+          <FiSearch className="absolute top-3 text-xl right-[98px] md:right-28 lg:right-32" />
           <button
             className="px-4 py-2 h-12 text-white border border-white rounded-md ml-2
           hover:bg-white hover:text-black transition-all duration-150"

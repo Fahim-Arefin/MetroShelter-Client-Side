@@ -3,7 +3,7 @@ import { TbListDetails } from "react-icons/tb";
 
 function AdvertisementCard({ property }) {
   const words = property.description.split(" ");
-  console.log(words);
+  //   console.log(words);
 
   return (
     <div className="col-span-1 bg-white p-4 rounded-md space-y-4 shadow-md">
