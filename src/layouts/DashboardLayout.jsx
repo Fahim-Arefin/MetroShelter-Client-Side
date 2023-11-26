@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar";
 
 function DashboardLayout() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen ">
       <div className="">
         <SideBar />
       </div>

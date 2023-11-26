@@ -8,7 +8,17 @@ function usePropertyAPI() {
     return res.data;
   }
 
-  return { fetchAllProperty };
+  async function createProperty(formData) {
+    const res = await axiosPublic.post("/properties", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return res.data;
+  }
+
+  return { fetchAllProperty, createProperty };
 }
 
 export default usePropertyAPI;

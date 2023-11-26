@@ -23,6 +23,7 @@ import ManageUsers from "./pages/ManageUsers";
 import ManageReviews from "./pages/ManageReviews";
 import MySoldProperties from "./pages/MySoldProperties";
 import MyRequestedProperties from "./pages/MyRequestedProperties";
+import AddProperty from "./pages/AddProperty";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
         element: <ManageReviews />,
       },
       // agent
+      {
+        path: "/dashboard/add-property",
+        element: <AddProperty />,
+      },
       {
         path: "/dashboard/my-added-properties",
         element: <MyAddedProperties />,

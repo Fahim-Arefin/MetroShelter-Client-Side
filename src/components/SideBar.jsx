@@ -19,6 +19,7 @@ function SideBar() {
   const [isManageReviewsHovered, setIsManageReviewsHovered] = useState(false);
 
   // Agent
+  const [isAddPropertyHovered, setIsAddPropertyHovered] = useState(false);
   const [isMyAddedPropertiesHovered, setIsMyAddedPropertiesHovered] =
     useState(false);
   const [isMySoldPropertiesHovered, setIsMySoldPropertiesHovered] =
@@ -266,6 +267,29 @@ function SideBar() {
             )}
             {isAgent && (
               <>
+                <li>
+                  <NavLink className="bg-red-200 " to="/dashboard/add-property">
+                    <div
+                      onClick={() => setIsActive("add-property")}
+                      onMouseEnter={() => setIsAddPropertyHovered(true)}
+                      onMouseLeave={() => setIsAddPropertyHovered(false)}
+                      className="flex space-x-2 items-center cursor-pointer text-[#f87060] hover:bg-[#f87060] hover:text-black transition-all duration-150 px-3 py-2 rounded-md"
+                    >
+                      <div className="w-3 h-3 md:w-4 md:h-4 lg:w-6 lg:h-6">
+                        <img
+                          className="h-full w-full"
+                          src={
+                            isAddPropertyHovered || isActive === "add-property"
+                              ? "https://img.icons8.com/ios-glyphs/30/add--v1.png"
+                              : "https://img.icons8.com/ios-glyphs/30/f87060/add--v1.png"
+                          }
+                          alt="user-group-man-man"
+                        />
+                      </div>
+                      <span>Add Property</span>
+                    </div>
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     className="bg-red-200 "

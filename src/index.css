@@ -4,9 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f6fcff;
+@layer components {
+  .input-field {
+    @apply w-full rounded-md border border-gray-700  px-5 py-2.5  outline-none placeholder:tracking-wide
+    focus:outline-none focus:ring focus:ring-gray-700 focus:ring-offset-2;
+  }
 }
+
+/* body {
+  background-color: #f6fcff;
+} */
 
 .option-menu li a.active {
   color: #f87060;
