@@ -23,10 +23,16 @@ function usePropertyAPI() {
     return res.data;
   }
 
+  async function deleteOneProperty(id) {
+    const res = await axiosPublic.delete(`/properties/${id}`);
+    return res.data;
+  }
+
   return {
     fetchAllProperty,
     createProperty,
     fetchSpecificAgentAddedProperties,
+    deleteOneProperty,
   };
 }
 

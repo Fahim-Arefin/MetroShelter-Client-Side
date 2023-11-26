@@ -23,7 +23,7 @@ function MyAddedProperties() {
   });
 
   return (
-    <div className="max-h-screen py-12 px-4 md:p-24 overflow-scroll lg:bg-[#f6fcff]">
+    <div className="max-h-screen py-12 px-4 md:p-24 overflow-scroll bg-[#f6fcff]">
       <div className="space-y-2">
         <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-[#f87060] via-[#f75e4d] to-[#e84a5f] text-transparent bg-clip-text">
           My Added Properties

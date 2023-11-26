@@ -99,7 +99,7 @@ function AddProperty() {
     };
     // console.log("final Data ", data);
     if (parseFloat(data.startPrice) > parseFloat(data.endPrice)) {
-      errorToast("End Price cant not be greater than Start Price");
+      errorToast("End Price cant not be greater than Start Price", 2000);
       return;
     }
     mutation.mutate(data);
@@ -421,7 +421,7 @@ function AddProperty() {
       </div>
       <ToastContainer
         position="top-center"
-        // autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
