@@ -39,9 +39,9 @@ function SideBar() {
   const isAgent = true;
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open z-50">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="absolute drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"

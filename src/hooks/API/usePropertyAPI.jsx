@@ -18,7 +18,16 @@ function usePropertyAPI() {
     return res.data;
   }
 
-  return { fetchAllProperty, createProperty };
+  async function fetchSpecificAgentAddedProperties(email) {
+    const res = await axiosPublic.get(`/properties/${email}`);
+    return res.data;
+  }
+
+  return {
+    fetchAllProperty,
+    createProperty,
+    fetchSpecificAgentAddedProperties,
+  };
 }
 
 export default usePropertyAPI;

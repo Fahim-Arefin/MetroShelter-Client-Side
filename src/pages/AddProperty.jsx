@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Button from "../components/Button";
 import Map from "../components/Map";
 import { useEffect, useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import usePropertyAPI from "../hooks/API/usePropertyAPI";
 
 import { ToastContainer } from "react-toastify";
@@ -26,7 +26,7 @@ function AddProperty() {
     formState: { errors },
   } = useForm();
 
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: createProperty,
@@ -36,7 +36,7 @@ function AddProperty() {
         text: "Property Added Successfully 🚩",
         icon: "success",
       });
-      // queryClient.invalidateQueries({ queryKey: ["items"] });
+      queryClient.invalidateQueries({ queryKey: ["properties", "email"] });
     },
     onError: () => {
       Swal.fire({
@@ -181,6 +181,7 @@ function AddProperty() {
                   className="border border-gray-700 file-input file-input-bordered w-full"
                   {...register("image", { required: true })}
                 />
+
                 {errors?.image?.type === "required" && (
                   <div className="flex space-x-2 items-center mt-2">
                     <div className="w-5 h-5">
