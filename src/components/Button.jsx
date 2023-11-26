@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 function Button({ children, primary, secondary, outline, ...rest }) {
   let primaryStyle = ` border-none bg-[#f87060] font-semibold  tracking-wide
   transition-all duration-150 hover:bg-[#d65a4b] focus:outline-none focus:ring focus:ring-[#d65a4b] 
-  focus:ring-offset-2 active:bg-[#ba4b3d] disabled:cursor-not-allowed disabled:bg-purple-200`;
+  focus:ring-offset-2 active:bg-[#ba4b3d] disabled:cursor-not-allowed disabled:bg-[#fca08e]`;
 
   let primaryOutline = ` border border-[#f87060] font-semibold  tracking-wide
   transition-all duration-150 hover:bg-[#f87060] focus:outline-none focus:ring focus:ring-[#f87060] 
-  focus:ring-offset-2 active:bg-[#ba4b3d] disabled:cursor-not-allowed disabled:bg-purple-200`;
+  focus:ring-offset-2 active:bg-[#ba4b3d] disabled:cursor-not-allowed disabled:bg-[#fca08e]`;
 
   let secondaryStyle = ` border-none bg-gray-700  font-semibold  tracking-wide
   transition-all duration-150 hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-800 

@@ -84,7 +84,7 @@ function AuthProvider({ children }) {
     return signOut(auth);
   };
 
-  const successToast = (msg, time) => {
+  const successToast = (msg, time = false) => {
     toast.success(msg, {
       position: "top-center",
       autoClose: time,
@@ -97,7 +97,7 @@ function AuthProvider({ children }) {
     });
   };
 
-  const errorToast = (msg, time) => {
+  const errorToast = (msg, time = false) => {
     toast.error(msg, {
       position: "top-center",
       autoClose: time,
