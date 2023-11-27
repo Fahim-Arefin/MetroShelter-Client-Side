@@ -123,6 +123,8 @@ function UpdateProperty() {
     }
 
     const updateData = {
+      authorImg: user.photoURL,
+      authorName: user.displayName,
       authorEmail: user.email,
       title: inputData.title,
       startPrice: inputData.startPrice,

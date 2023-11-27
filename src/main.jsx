@@ -30,6 +30,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import MyAddedProperties from "./pages/MyAddedProperties";
 import UpdateProperty from "./pages/UpdateProperty";
+import PropertyDetails from "./pages/PropertyDetails";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/properties",
         element: <AllProperties />,
+      },
+      {
+        path: "/properties/:id",
+        element: <PropertyDetails />,
       },
     ],
   },

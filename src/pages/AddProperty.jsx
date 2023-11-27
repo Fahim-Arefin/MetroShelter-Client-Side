@@ -84,6 +84,8 @@ function AddProperty() {
     // console.log(inputData);
     // console.log(data.image[0].name);
     const data = {
+      authorImg: user.photoURL,
+      authorName: user.displayName,
       authorEmail: user.email,
       title: inputData.title,
       startPrice: inputData.startPrice,

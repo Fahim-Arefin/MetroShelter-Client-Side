@@ -3,8 +3,8 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 function usePropertyAPI() {
   const axiosPublic = useAxiosPublic();
 
-  async function fetchAllProperty() {
-    const res = await axiosPublic.get("/properties");
+  async function fetchAllProperty(status) {
+    const res = await axiosPublic.get(`/properties?status=${status}`);
     return res.data;
   }
 

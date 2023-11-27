@@ -1,62 +1,13 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import useAuth from "../hooks/useAuth";
 import Button from "./Button";
-import { FaTrash, FaPencilAlt } from "react-icons/fa"; // Assuming these icons are available in the "react-icons/fa" package
-import usePropertyAPI from "../hooks/API/usePropertyAPI";
-import Swal from "sweetalert2";
-import SpinnerWithBlur from "./SpinnerWithBlur";
+import { TbListDetails } from "react-icons/tb";
+
 import { useNavigate } from "react-router-dom";
 
-function AddedPropertiesCard({ property }) {
-  const { user } = useAuth();
-  const { deleteOneProperty } = usePropertyAPI();
+function AllPropertyCard({ property }) {
   const navigate = useNavigate();
-
-  const queryClient = useQueryClient();
-  const mutation = useMutation({
-    mutationFn: deleteOneProperty,
-    onSuccess: () => {
-      Swal.fire({
-        title: "Deleted!",
-        text: "Your file has been deleted.",
-        icon: "success",
-      });
-      queryClient.invalidateQueries({ queryKey: ["properties", "email"] });
-    },
-    onError: () => {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-      });
-    },
-  });
-
-  const handleDelete = (id) => {
-    console.log(id);
-
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        mutation.mutate(id);
-      }
-    });
-  };
-
-  const handleUpdate = (id) => {
-    navigate(`/dashboard/properties/${id}/edit`);
-  };
 
   return (
     <>
-      {mutation.isPending && <SpinnerWithBlur />}
       <div className="col-span-1 bg-white p-4 rounded-md space-y-4 shadow-md">
         <div className="group relative w-full h-[200px] mx-auto rounded-md cursor-pointer overflow-hidden">
           <img
@@ -84,11 +35,11 @@ function AddedPropertiesCard({ property }) {
 
           {/* Agent Information */}
           <div className="absolute top-4 right-4 z-40 bg-gray-700 text-[#edf2f4] font-semibold text-xs rounded-full w-fit py-1.5 px-4 flex items-center space-x-2">
-            <span>{user.displayName}</span>
+            <span>{property.authorName}</span>
             <img
               className="w-5 h-5 ml-3 rounded-full"
-              src={user.photoURL} // Replace with the actual agent image source
-              alt={user.displayName} // Replace with the actual alt text
+              src={property.authorImg} // Replace with the actual agent image source
+              alt={property.authorName} // Replace with the actual alt text
             />
           </div>
 
@@ -157,27 +108,16 @@ function AddedPropertiesCard({ property }) {
             )}
           </div>
 
-          <div className="flex justify-center gap-x-2">
-            {property.status !== "rejected" && (
-              <Button
-                onClick={() => handleUpdate(property._id)}
-                secondary
-                className="mt-5 flex space-x-1 rounded-[4px] px-3 py-1.5 items-center"
-              >
-                <FaPencilAlt className="text-xs" />
-                <span className="text-[16px]">Update</span>
-              </Button>
-            )}
-
-            <button
-              onClick={() => handleDelete(property._id)}
-              className="border-none bg-[#e84a5f] font-semibold  tracking-wide
-            transition-all duration-150 hover:bg-[#c2394b] focus:outline-none focus:ring focus:ring-[#e33d53] 
-            focus:ring-offset-2 active:bg-[#c14253] disabled:cursor-not-allowed disabled:bg-[#fca08e] mt-5 text-white flex space-x-1 rounded-[4px] px-3 py-1.5 items-center"
+          <div className="">
+            <Button
+              onClick={() => navigate(`/properties/${property._id}`)}
+              primary
+              className="mt-5 flex space-x-1 rounded-[4px] px-2 py-1 items-center"
             >
-              <FaTrash className="text-sm mb-[3px]" />
-              <span className="text-[16px]">Delete</span>
-            </button>
+              <TbListDetails className="text-lg" />
+
+              <span className="text-lg">Details</span>
+            </Button>
           </div>
         </div>
       </div>
@@ -185,4 +125,4 @@ function AddedPropertiesCard({ property }) {
   );
 }
 
-export default AddedPropertiesCard;
+export default AllPropertyCard;
