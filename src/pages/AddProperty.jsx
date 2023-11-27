@@ -107,7 +107,7 @@ function AddProperty() {
 
   return (
     <>
-      <div className="max-h-screen p-24 space-y-12 overflow-scroll">
+      <div className="max-h-screen py-12 md:py-24 lg:py-12 xl:py-24 px-4 xl:p-24 space-y-12 overflow-scroll">
         <div className="space-y-2">
           <h1 className="text-4xl font-bold bg-gradient-to-b from-[#f87060] via-[#f75e4d] to-[#e84a5f] text-transparent bg-clip-text">
             Add New Property
@@ -116,10 +116,13 @@ function AddProperty() {
             We are glad to see you again!
           </h3>
         </div>
-        <div style={boxStyle} className="w-full p-12 rounded-xl bg-white">
+        <div
+          style={boxStyle}
+          className="w-full p-4 md:p-12 rounded-xl bg-white"
+        >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
             {/* name and email */}
-            <div className="grid grid-cols-2 gap-x-8 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8  ">
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
                   User Name
@@ -145,7 +148,7 @@ function AddProperty() {
             </div>
 
             {/* Property Title and image*/}
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8 ">
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
                   Property Title
@@ -173,7 +176,7 @@ function AddProperty() {
               </div>
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
-                  choose image
+                  Choose image
                 </label>
                 <input
                   accept="image/*"
@@ -199,7 +202,7 @@ function AddProperty() {
               </div>
             </div>
             {/* Property start price , end price*/}
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8 ">
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
                   Start Price
@@ -284,7 +287,7 @@ function AddProperty() {
             </div>
 
             {/* Property lat & lng*/}
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8 ">
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
                   Latitude
@@ -316,7 +319,7 @@ function AddProperty() {
               </div>
             </div>
             {/* Property cityName & country*/}
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-0 md:gap-x-8 ">
               <div className="space-y-2 col-span-1">
                 <label className=" text-gray-700 font-semibold mb-2 text-[16px]">
                   City Name
