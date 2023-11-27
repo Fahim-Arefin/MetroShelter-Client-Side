@@ -29,6 +29,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { HelmetProvider } from "react-helmet-async";
 import MyAddedProperties from "./pages/MyAddedProperties";
+import UpdateProperty from "./pages/UpdateProperty";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       // user,admin,agent profile
       {
         path: "/dashboard",
-        element: <Navigate to="/dashboard/profile" />,
+        element: <Navigate to="/dashboard/profile" replace={true} />,
       },
       {
         path: "/dashboard/profile",
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/my-requested-properties",
         element: <MyRequestedProperties />,
+      },
+      {
+        path: "/dashboard/properties/:id/edit",
+        element: <UpdateProperty />,
       },
     ],
   },

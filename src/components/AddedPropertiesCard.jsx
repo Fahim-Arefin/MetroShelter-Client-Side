@@ -5,10 +5,12 @@ import { FaTrash, FaPencilAlt } from "react-icons/fa"; // Assuming these icons a
 import usePropertyAPI from "../hooks/API/usePropertyAPI";
 import Swal from "sweetalert2";
 import SpinnerWithBlur from "./SpinnerWithBlur";
+import { useNavigate } from "react-router-dom";
 
 function AddedPropertiesCard({ property }) {
   const { user } = useAuth();
   const { deleteOneProperty } = usePropertyAPI();
+  const navigate = useNavigate();
 
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -46,6 +48,10 @@ function AddedPropertiesCard({ property }) {
         mutation.mutate(id);
       }
     });
+  };
+
+  const handleUpdate = (id) => {
+    navigate(`/dashboard/properties/${id}/edit`);
   };
 
   return (
@@ -153,6 +159,7 @@ function AddedPropertiesCard({ property }) {
 
           <div className="flex justify-center gap-x-2">
             <Button
+              onClick={() => handleUpdate(property._id)}
               secondary
               className="mt-5 flex space-x-1 rounded-[4px] px-3 py-1.5 items-center"
             >
