@@ -34,8 +34,8 @@ function SideBar() {
 
   // console.log(location);
   // console.log(defaultValue);
-  const isUser = false;
-  const isAdmin = true;
+  const isUser = true;
+  const isAdmin = false;
   const isAgent = false;
 
   return (
