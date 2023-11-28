@@ -32,6 +32,7 @@ import MyAddedProperties from "./pages/MyAddedProperties";
 import UpdateProperty from "./pages/UpdateProperty";
 import PropertyDetails from "./pages/PropertyDetails";
 import MakeAnOffer from "./pages/MakeAnOffer";
+import AdvertiseProperty from "./pages/AdvertiseProperty";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manage-reviews",
         element: <ManageReviews />,
+      },
+      {
+        path: "/dashboard/advertise-property",
+        element: <AdvertiseProperty />,
       },
       // agent
       {

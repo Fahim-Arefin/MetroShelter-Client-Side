@@ -146,6 +146,7 @@ function AddedPropertiesCard({ property }) {
                 {property.description.substring(0, 80)}
                 {" ..."}
                 <span
+                  onClick={() => navigate(`/properties/${property._id}`)}
                   className="cursor-pointer hover:underline hover:underline-blue-500
                text-xs text-blue-500 font-semibold px-1"
                 >
@@ -157,7 +158,7 @@ function AddedPropertiesCard({ property }) {
             )}
           </div>
 
-          <div className="flex justify-center gap-x-2">
+          <div className="flex gap-x-2">
             {property.status !== "rejected" && (
               <Button
                 onClick={() => handleUpdate(property._id)}

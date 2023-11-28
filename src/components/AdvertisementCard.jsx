@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import { TbListDetails } from "react-icons/tb";
 
 function AdvertisementCard({ property }) {
   const words = property.description.split(" ");
   //   console.log(words);
+  const navigate = useNavigate();
 
   return (
     <div className="col-span-1 bg-white p-4 rounded-md space-y-4 shadow-md">
@@ -70,6 +72,7 @@ function AdvertisementCard({ property }) {
         </div>
 
         <Button
+          onClick={() => navigate(`/properties/${property._id}`)}
           primary
           className="mt-5 flex space-x-1 rounded-[4px] px-2 py-1 items-center"
         >

@@ -17,6 +17,8 @@ function SideBar() {
     useState(false);
   const [isManageUsersHovered, setIsManageUsersHovered] = useState(false);
   const [isManageReviewsHovered, setIsManageReviewsHovered] = useState(false);
+  const [isAdvertisePropertyHovered, setIsAdvertisePropertyHovered] =
+    useState(false);
 
   // Agent
   const [isAddPropertyHovered, setIsAddPropertyHovered] = useState(false);
@@ -34,8 +36,8 @@ function SideBar() {
 
   // console.log(location);
   // console.log(defaultValue);
-  const isUser = true;
-  const isAdmin = false;
+  const isUser = false;
+  const isAdmin = true;
   const isAgent = false;
 
   return (
@@ -260,6 +262,33 @@ function SideBar() {
                         />
                       </div>
                       <span>Manage reviews</span>
+                    </div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="bg-red-200 "
+                    to="/dashboard/advertise-property"
+                  >
+                    <div
+                      onClick={() => setIsActive("advertise-property")}
+                      onMouseEnter={() => setIsAdvertisePropertyHovered(true)}
+                      onMouseLeave={() => setIsAdvertisePropertyHovered(false)}
+                      className="flex space-x-2 items-center cursor-pointer text-[#f87060] hover:bg-[#f87060] hover:text-black transition-all duration-150 px-3 py-2 rounded-md"
+                    >
+                      <div className="w-3 h-3 md:w-4 md:h-4 lg:w-6 lg:h-6">
+                        <img
+                          className="h-full w-full"
+                          src={
+                            isAdvertisePropertyHovered ||
+                            isActive === "advertise-property"
+                              ? "https://img.icons8.com/ios-filled/50/flyer-distributor-male.png"
+                              : "https://img.icons8.com/ios-filled/50/f87060/flyer-distributor-male.png"
+                          }
+                          alt="user-group-man-man"
+                        />
+                      </div>
+                      <span>Advertise Property</span>
                     </div>
                   </NavLink>
                 </li>

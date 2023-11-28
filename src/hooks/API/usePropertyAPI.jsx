@@ -8,6 +8,11 @@ function usePropertyAPI() {
     return res.data;
   }
 
+  async function fetchAllAdvertiseProperty() {
+    const res = await axiosPublic.get(`/properties/show/advertise`);
+    return res.data;
+  }
+
   async function createProperty(formData) {
     const res = await axiosPublic.post("/properties", formData, {
       headers: {
@@ -37,6 +42,13 @@ function usePropertyAPI() {
     });
     return res.data;
   }
+  async function updatePropertyAdvertise(formData) {
+    const { id, isAdvertise } = formData;
+    const res = await axiosPublic.patch(`/properties/advertise/${id}`, {
+      isAdvertise,
+    });
+    return res.data;
+  }
 
   async function deleteOneProperty(id) {
     const res = await axiosPublic.delete(`/properties/${id}`);
@@ -50,6 +62,8 @@ function usePropertyAPI() {
     deleteOneProperty,
     fetchOneProperty,
     updateProperty,
+    updatePropertyAdvertise,
+    fetchAllAdvertiseProperty,
   };
 }
 

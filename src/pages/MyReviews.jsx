@@ -5,6 +5,7 @@ import DataError from "../components/DataError";
 import DataNotFound from "../components/DataNotFound";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
+import { convertToCustomDateFormat } from "../util/util";
 
 function MyReviews() {
   const { getMyReviews, deleteOneReview } = useReviewAPI();
@@ -18,6 +19,7 @@ function MyReviews() {
   });
 
   const queryClient = useQueryClient();
+  console.log(data);
 
   // Mutations
   const mutation = useMutation({
@@ -97,7 +99,18 @@ function MyReviews() {
                   </div>
 
                   <p className="text-gray-800 mb-4 grow">
-                    {review.reviewDescription}
+                    <div className="text-lg font-semibold">
+                      {review.property.title}
+                    </div>
+                    <div className="flex space-x-2 items-center">
+                      <div className="text-xs px-2 py-1 rounded-full bg-gray-700 text-white">
+                        {convertToCustomDateFormat(review.property.createdAt)}
+                      </div>
+                      <div className="text-sm">
+                        {review.property.authorName}
+                      </div>
+                    </div>
+                    <div className="mt-4">{review.reviewDescription}</div>
                   </p>
 
                   <button
