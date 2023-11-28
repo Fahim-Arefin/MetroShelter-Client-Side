@@ -97,6 +97,7 @@ function AllPropertyCard({ property }) {
                 {property.description.substring(0, 80)}
                 {" ..."}
                 <span
+                  onClick={() => navigate(`/properties/${property._id}`)}
                   className="cursor-pointer hover:underline hover:underline-blue-500
                text-xs text-blue-500 font-semibold px-1"
                 >

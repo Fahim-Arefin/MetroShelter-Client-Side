@@ -35,8 +35,8 @@ function SideBar() {
   // console.log(location);
   // console.log(defaultValue);
   const isUser = false;
-  const isAdmin = false;
-  const isAgent = true;
+  const isAdmin = true;
+  const isAgent = false;
 
   return (
     <div className="drawer lg:drawer-open z-50">
