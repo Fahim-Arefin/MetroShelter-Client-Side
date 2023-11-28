@@ -2,14 +2,17 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 // import "leaflet/dist/leaflet.css";
 import "./Map.module.css"; //because there is only global css only
+import { useNavigate } from "react-router-dom";
 
 // Create the Map component
 const MultipleMapShow = ({ data }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-full h-[300px] md:h-[500px]">
       <MapContainer
         center={[data[0].lat, data[0].lng]}
-        zoom={6}
+        zoom={7}
         className={`h-[100%] z-20`}
       >
         <TileLayer
@@ -21,7 +24,12 @@ const MultipleMapShow = ({ data }) => {
           <Marker key={property._id} position={[property.lat, property.lng]}>
             <Popup>
               {/* when we click on the map marker then pop up text will show */}
-              {property.cityName}, {property.country}
+              <span
+                className="cursor-pointer hover:underline"
+                onClick={() => navigate(`/properties/${property._id}`)}
+              >
+                {property.cityName}, {property.country}
+              </span>
             </Popup>
           </Marker>
         ))}

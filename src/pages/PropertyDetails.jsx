@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import usePropertyAPI from "../hooks/API/usePropertyAPI";
 import SpinnerWithBlur from "../components/SpinnerWithBlur";
@@ -10,12 +10,49 @@ import Review from "../components/Review";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import { useRef } from "react";
+import useWishListAPI from "../hooks/API/useWishListAPI";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
+import { ToastContainer } from "react-toastify";
 function PropertyDetails() {
   const { id } = useParams();
   const { fetchOneProperty } = usePropertyAPI();
+  const { createWishList, fetchYourWishList } = useWishListAPI();
+  const { user, errorToast } = useAuth();
+
   const { isPending, data, error } = useQuery({
     queryKey: ["properties", "show", id],
     queryFn: () => fetchOneProperty(id),
+  });
+
+  const checkDuplicateWishlist = useQuery({
+    queryKey: ["wishlist", "email"],
+    queryFn: () => fetchYourWishList(user.email),
+    enabled: data ? true : false,
+  });
+  const queryClient = new QueryClient();
+
+  // Mutations
+  const mutation = useMutation({
+    mutationFn: createWishList,
+    onSuccess: () => {
+      // Invalidate and refetch
+      Swal.fire({
+        title: "Success",
+        text: "Added to Wishlist ⏳",
+        icon: "success",
+      });
+      queryClient.invalidateQueries({ queryKey: ["wishlist", "email"] });
+      queryClient.invalidateQueries({ queryKey: ["properties", "show", id] });
+      checkDuplicateWishlist.refetch();
+    },
+    onError: () => {
+      Swal.fire({
+        title: "Error!",
+        text: "Sorry, could not add to wishlist ⛔",
+        icon: "error",
+      });
+    },
   });
 
   const modalRef = useRef(null);
@@ -24,9 +61,27 @@ function PropertyDetails() {
   };
 
   console.log(data);
+
+  const handleWishList = () => {
+    if (checkDuplicateWishlist.data) {
+      const found = checkDuplicateWishlist.data.find((wishlist) => {
+        if (wishlist.property._id === data._id) {
+          return true;
+        }
+      });
+      if (!found) {
+        mutation.mutate({ propertyData: data, authorEmail: user.email });
+      } else {
+        errorToast("Already Added to WishList", 2000);
+      }
+    }
+  };
+
   return (
     <>
-      {isPending && <SpinnerWithBlur />}
+      {(isPending ||
+        mutation.isPending ||
+        checkDuplicateWishlist.isPending) && <SpinnerWithBlur />}
       {error && <DataError errorMessage={error.message} />}
       {data?.length === 0 && <DataNotFound className="" />}
       {data && (
@@ -101,9 +156,10 @@ function PropertyDetails() {
                 {/* wishList btn */}
                 <div className="">
                   <button
+                    onClick={handleWishList}
                     className="border-none bg-[#2b82cb] font-semibold  tracking-wide
-                      transition-all duration-150 hover:bg-[#519ddb] focus:outline-none focus:ring focus:ring-[#519ddb] 
-                      focus:ring-offset-2 active:bg-[#2b82cb] disabled:cursor-not-allowed disabled:bg-[#2b82cb]
+                      transition-all duration-150 hover:bg-[#3d99e4] outline-none ring ring-[#519ddb] 
+                      ring-offset-2 active:bg-[#2b82cb] disabled:cursor-not-allowed disabled:bg-[#2b82cb]
                        px-4 py-2 rounded-md text-white flex space-x-2 items-center"
                   >
                     <div>
@@ -194,6 +250,22 @@ function PropertyDetails() {
           </div>
         </>
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        style={{
+          display: "inline-block",
+          width: "auto",
+        }}
+      />
     </>
   );
 }
