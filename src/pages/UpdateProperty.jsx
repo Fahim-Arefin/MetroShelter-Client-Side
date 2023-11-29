@@ -137,6 +137,7 @@ function UpdateProperty() {
       cityName,
       fullAddress,
       status: "pending",
+      isAdvertise: false,
     };
     console.log("final Data ", updateData);
     if (parseFloat(updateData.startPrice) > parseFloat(updateData.endPrice)) {

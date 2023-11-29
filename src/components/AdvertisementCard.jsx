@@ -12,7 +12,7 @@ function AdvertisementCard({ property }) {
       <div className="group relative w-full h-[200px] mx-auto rounded-md cursor-pointer overflow-hidden">
         <img
           className="z-10 w-full h-full rounded-tl-md rounded-tr-md hover:scale-105  transition-all duration-300"
-          src="/banner2.jpg"
+          src={property.image}
           alt=""
         />
         <div className="absolute inset-0 z-20 opacity-30 bg-gray-700 group-hover:opacity-0 group-hover:invisible visible transition-opacity duration-300"></div>

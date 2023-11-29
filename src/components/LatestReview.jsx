@@ -47,7 +47,7 @@ function LatestReview() {
                       {review.reviewDescription}
                     </p>
                     <p className="text-[#e84a5f] text-sm font-semibold">
-                      {review.property.title}
+                      {review.property?.title}
                     </p>
                   </div>
                 </>

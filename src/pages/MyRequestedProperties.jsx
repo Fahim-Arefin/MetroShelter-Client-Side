@@ -25,7 +25,7 @@ function MyRequestedProperties() {
   useEffect(() => {
     if (data) {
       const myPropOffers = data.filter(
-        (offer) => offer.property.authorEmail === user?.email
+        (offer) => offer.property?.authorEmail === user?.email
       );
       setMydata(myPropOffers);
     }

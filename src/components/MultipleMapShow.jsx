@@ -14,10 +14,11 @@ const MultipleMapShow = ({ data }) => {
         center={[data[0].lat, data[0].lng]}
         zoom={7}
         className={`h-[100%] z-20`}
+        scrollWheelZoom={true}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {data.map((property) => (

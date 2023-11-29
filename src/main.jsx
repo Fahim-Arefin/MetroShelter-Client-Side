@@ -36,6 +36,7 @@ import AdvertiseProperty from "./pages/AdvertiseProperty";
 import PrivateRoutes from "./components/PrivateRoutes";
 import AdminRoute from "./components/AdminRoute";
 import AgentRoute from "./components/AgentRoute";
+import Payment from "./pages/Payment";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -111,6 +112,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <MakeAnOffer />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/offer/payment/:id",
+        element: (
+          <PrivateRoutes>
+            <Payment />
           </PrivateRoutes>
         ),
       },

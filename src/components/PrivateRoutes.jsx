@@ -10,7 +10,8 @@ function PrivateRoutes({ children }) {
   if (loading) {
     return (
       <div className="absolute inset-0 bg-slate-300/30 text-center flex justify-center items-center">
-        <span className="loading loading-bars loading-md"></span>
+        {/* <span className="loading loading-bars loading-md"></span> */}
+        <span className="loading loading-dots loading-md"></span>
       </div>
     );
   }

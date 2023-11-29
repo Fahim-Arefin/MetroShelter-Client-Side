@@ -1,7 +1,7 @@
 // Import necessary libraries and components
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-// import "leaflet/dist/leaflet.css";
 import "./Map.module.css"; //because there is only global css only
+import "leaflet/dist/leaflet.css";
 
 // Create the Map component
 const MapShow = ({ data }) => {
@@ -13,8 +13,8 @@ const MapShow = ({ data }) => {
         className={`h-[100%] z-20`}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <Marker key={1} position={[data.lat, data.lng]}>

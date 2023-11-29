@@ -122,6 +122,19 @@ function MyRequestPropertyCard({ offerData }) {
               <span className="first-letter:uppercase">Rejected</span>
             </div>
           )}
+          {offerData.status === "bought" && (
+            <div className="absolute top-4 left-4 z-40 bg-gray-700 text-[#2b82cb] font-semibold text-xs rounded-full w-fit py-1.5 px-3 flex items-center space-x-1">
+              <div className="w-4 h-4 mb-0.5">
+                <img
+                  className="h-full w-full"
+                  src="https://img.icons8.com/ios-filled/50/2b82cb/property.png"
+                  alt="property"
+                />
+              </div>
+              {/* <span className="first-letter:uppercase">{offerData.status}</span> */}
+              <span className="first-letter:uppercase">Sold</span>
+            </div>
+          )}
         </div>
 
         {/* body */}

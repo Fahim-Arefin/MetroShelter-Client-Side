@@ -4,16 +4,6 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAo8iRsJ7ihZRKlj8OiyFzOyLLxOeMahNo",
-//   authDomain: "metroshelter-7a7d6.firebaseapp.com",
-//   projectId: "metroshelter-7a7d6",
-//   storageBucket: "metroshelter-7a7d6.appspot.com",
-//   messagingSenderId: "707431960107",
-//   appId: "1:707431960107:web:a70e91d0196d889b8fe46e",
-// };
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
   authDomain: import.meta.env.VITE_authDomain,

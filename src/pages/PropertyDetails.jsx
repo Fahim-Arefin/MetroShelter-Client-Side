@@ -65,7 +65,7 @@ function PropertyDetails() {
   const handleWishList = () => {
     if (checkDuplicateWishlist.data) {
       const found = checkDuplicateWishlist.data.find((wishlist) => {
-        if (wishlist.property._id === data._id) {
+        if (wishlist.property?._id === data._id) {
           return true;
         }
       });

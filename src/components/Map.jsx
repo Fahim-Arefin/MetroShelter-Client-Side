@@ -1,6 +1,7 @@
 // Import necessary libraries and components
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
+import "./Map.module.css"; //because there is only global css only
 import { useEffect } from "react";
 import useGeolocation from "../hooks/use-Geoloocation";
 import Button from "./Button";
@@ -50,13 +51,13 @@ const MyMap = ({ mapPosition, setMapPosition }) => {
         /> */}
 
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <Marker key={1} position={mapPosition}>
           <Popup>
-            when we click on the map marker then pop up text will show
+            Add your location
             {/* {city.emoji} {city.cityName} */}
           </Popup>
         </Marker>
