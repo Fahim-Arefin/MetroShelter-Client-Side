@@ -33,6 +33,9 @@ import UpdateProperty from "./pages/UpdateProperty";
 import PropertyDetails from "./pages/PropertyDetails";
 import MakeAnOffer from "./pages/MakeAnOffer";
 import AdvertiseProperty from "./pages/AdvertiseProperty";
+import PrivateRoutes from "./components/PrivateRoutes";
+import AdminRoute from "./components/AdminRoute";
+import AgentRoute from "./components/AgentRoute";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -45,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/properties",
-        element: <AllProperties />,
+        element: (
+          <PrivateRoutes>
+            <AllProperties />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/properties/:id",
-        element: <PropertyDetails />,
+        element: (
+          <PrivateRoutes>
+            <PropertyDetails />
+          </PrivateRoutes>
+        ),
       },
     ],
   },
@@ -64,62 +75,118 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <MyProfile />,
+        element: (
+          <PrivateRoutes>
+            <MyProfile />
+          </PrivateRoutes>
+        ),
       },
       // user
       {
         path: "/dashboard/wishlist",
-        element: <WishList />,
+        element: (
+          <PrivateRoutes>
+            <WishList />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/properties",
-        element: <PropertyBrought />,
+        element: (
+          <PrivateRoutes>
+            <PropertyBrought />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/reviews",
-        element: <MyReviews />,
+        element: (
+          <PrivateRoutes>
+            <MyReviews />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/offer/:propertyId",
-        element: <MakeAnOffer />,
+        element: (
+          <PrivateRoutes>
+            <MakeAnOffer />
+          </PrivateRoutes>
+        ),
       },
       //admin
       {
         path: "/dashboard/manage-properties",
-        element: <ManageProperties />,
+        element: (
+          <AdminRoute>
+            <ManageProperties />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-users",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-reviews",
-        element: <ManageReviews />,
+        element: (
+          <AdminRoute>
+            <ManageReviews />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/advertise-property",
-        element: <AdvertiseProperty />,
+        element: (
+          <AdminRoute>
+            <AdvertiseProperty />
+          </AdminRoute>
+        ),
       },
       // agent
       {
         path: "/dashboard/add-property",
-        element: <AddProperty />,
+        element: (
+          <AgentRoute>
+            <AddProperty />
+          </AgentRoute>
+        ),
       },
       {
         path: "/dashboard/my-added-properties",
-        element: <MyAddedProperties />,
+        element: (
+          <AgentRoute>
+            <MyAddedProperties />
+          </AgentRoute>
+        ),
       },
       {
         path: "/dashboard/my-sold-properties",
-        element: <MySoldProperties />,
+        element: (
+          <AgentRoute>
+            <MySoldProperties />
+          </AgentRoute>
+        ),
       },
       {
         path: "/dashboard/my-requested-properties",
-        element: <MyRequestedProperties />,
+        element: (
+          <AgentRoute>
+            <MyRequestedProperties />
+          </AgentRoute>
+        ),
       },
       {
         path: "/dashboard/properties/:id/edit",
-        element: <UpdateProperty />,
+        element: (
+          <AgentRoute>
+            <UpdateProperty />
+          </AgentRoute>
+        ),
       },
     ],
   },

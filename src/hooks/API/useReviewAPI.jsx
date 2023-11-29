@@ -1,7 +1,9 @@
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../useAxiosSecure";
 
 function useReviewAPI() {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   async function createAReview(data) {
     const res = await axiosPublic.post("/reviews", data);
@@ -14,7 +16,7 @@ function useReviewAPI() {
   }
 
   async function getMyReviews(email) {
-    const res = await axiosPublic.get(`/reviews/${email}`);
+    const res = await axiosSecure.get(`/reviews/${email}`);
     return res.data;
   }
 

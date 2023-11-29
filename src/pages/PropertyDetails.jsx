@@ -188,7 +188,7 @@ function PropertyDetails() {
               <div className="my-6 w-fit mx-auto bg-white p-6 shadow-sm rounded-xl">
                 <div className="flex space-x-6 items-center">
                   <div>
-                    <img src={data.authorImg} alt="" />
+                    <img className="w-24 h-24" src={data.authorImg} alt="" />
                   </div>
                   <div>
                     <div className="text-xl font-semibold text-gray-700 flex space-x-1 items-center mt-2">

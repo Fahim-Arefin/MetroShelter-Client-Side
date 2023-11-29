@@ -1,7 +1,9 @@
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../useAxiosSecure";
 
 function usePropertyAPI() {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   async function fetchAllProperty(status) {
     const res = await axiosPublic.get(`/properties?status=${status}`);
@@ -23,8 +25,9 @@ function usePropertyAPI() {
     return res.data;
   }
 
+  // token applied
   async function fetchSpecificAgentAddedProperties(email) {
-    const res = await axiosPublic.get(`/properties/${email}`);
+    const res = await axiosSecure.get(`/properties/${email}`);
     return res.data;
   }
 

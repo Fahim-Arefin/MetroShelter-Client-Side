@@ -29,7 +29,7 @@ function MyProfile() {
         <div className="container mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
           <div className="flex space-x-6 items-center">
             <img
-              src={user.photoURL}
+              src={user?.photoURL}
               alt={userData.name}
               className="w-[100px] h-[100px]"
             />

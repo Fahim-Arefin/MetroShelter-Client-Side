@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FiLogIn } from "react-icons/fi";
 import { MdAppRegistration } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
@@ -16,6 +16,7 @@ function App() {
   const [isLoading, setIsloading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [showPassword, setShowPassWord] = useState(false);
   const { signIn, successToast, errorToast, signInWithGoogle } = useAuth();

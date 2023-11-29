@@ -51,15 +51,14 @@ function Navbar({ className }) {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
+
+            <li>
+              <NavLink to="/properties">All Properties</NavLink>
+            </li>
             {user && (
-              <>
-                <li>
-                  <NavLink to="/properties">All Properties</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard">Dashboard</NavLink>
-                </li>
-              </>
+              <li>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+              </li>
             )}
           </ul>
         </div>
@@ -82,25 +81,24 @@ function Navbar({ className }) {
               Home
             </NavLink>
           </li>
+
+          <li>
+            <NavLink
+              className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
+              to="/properties"
+            >
+              All properties
+            </NavLink>
+          </li>
           {user && (
-            <>
-              <li>
-                <NavLink
-                  className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
-                  to="/properties"
-                >
-                  All properties
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
-                  to="/dashboard"
-                >
-                  Dashboard
-                </NavLink>
-              </li>
-            </>
+            <li>
+              <NavLink
+                className="cursor-pointer font-semibold hover:border-b-2 hover:border-b-[#f87060] transition-all duration-150 px-4 py-1 rounded-sm "
+                to="/dashboard"
+              >
+                Dashboard
+              </NavLink>
+            </li>
           )}
         </ul>
       </div>
