@@ -25,7 +25,7 @@ function Advertisement() {
         </h5>
         <div>
           <h1 className="text-3xl font-bold  bg-gradient-to-b from-[#e84a5f] to-[#f87060] text-transparent bg-clip-text">
-            Explore the latest
+            Explore the advertised
           </h1>
           <h1 className="text-3xl font-bold  bg-gradient-to-t from-[#e84a5f] to-[#f87060] text-transparent bg-clip-text">
             properties available
