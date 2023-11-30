@@ -9,6 +9,7 @@ import useAuth from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
@@ -37,12 +38,35 @@ function App() {
     setIsloading(true);
     signIn(data.email, data.password)
       .then((userCredential) => {
-        setIsloading(false);
-        console.log(userCredential.user);
-        successToast("Email and password matched", 2000);
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 3000);
+        // setIsloading(false);
+        // console.log(userCredential.user);
+        // successToast("Email and password matched", 2000);
+        // setTimeout(() => {
+        //   navigate(location?.state ? location.state : "/");
+        // }, 3000);
+        axiosPublic
+          .get(`/users/${userCredential?.user?.email}`)
+          .then((res) => {
+            if (res.data) {
+              setIsloading(false);
+              console.log(userCredential.user);
+              successToast("Email and password matched", 2000);
+              setTimeout(() => {
+                navigate(location?.state ? location.state : "/");
+              }, 3000);
+            } else {
+              setIsloading(false);
+              errorToast("Invalid Username/Password", 2000);
+            }
+          })
+          .catch((error) => {
+            setIsloading(false);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
+            errorToast(errorCode, 2000);
+          });
       })
       .catch((error) => {
         setIsloading(false);
@@ -90,6 +114,9 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Login</title>
+      </Helmet>
       <div className="grid grid-cols-2 min-h-screen">
         <div className="col-span-2 lg:col-span-1 flex justify-center items-center">
           <div className="w-full p-4 md:p-0 md:w-[65%]  space-y-12">

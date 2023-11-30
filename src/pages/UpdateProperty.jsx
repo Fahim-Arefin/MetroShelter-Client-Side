@@ -12,6 +12,7 @@ import "sweetalert2/dist/sweetalert2.min.css";
 import { useParams } from "react-router-dom";
 import SpinnerWithBlur from "../components/SpinnerWithBlur";
 import DataError from "../components/DataError";
+import { Helmet } from "react-helmet-async";
 
 function UpdateProperty() {
   const boxStyle = {
@@ -149,6 +150,9 @@ function UpdateProperty() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Update Property</title>
+      </Helmet>
       {isPending ? (
         <SpinnerWithBlur />
       ) : (

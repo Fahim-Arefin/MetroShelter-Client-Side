@@ -6,6 +6,7 @@ import DataError from "../components/DataError";
 import AllPropertyCard from "../components/AllPropertyCard";
 import MultipleMapShow from "../components/MultipleMapShow";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 function AllProperties() {
   const { fetchAllProperty } = usePropertyAPI();
@@ -43,6 +44,9 @@ function AllProperties() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | All Properties</title>
+      </Helmet>
       {data && <MultipleMapShow data={data} />}
       <div className="min-h-screen py-12 px-4 md:p-24 bg-[#f6fcff]">
         <div className="space-y-2">

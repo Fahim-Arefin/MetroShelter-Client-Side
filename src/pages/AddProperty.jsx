@@ -9,6 +9,7 @@ import usePropertyAPI from "../hooks/API/usePropertyAPI";
 import { ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import { Helmet } from "react-helmet-async";
 
 function AddProperty() {
   const boxStyle = {
@@ -109,6 +110,9 @@ function AddProperty() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Add Property</title>
+      </Helmet>
       <div className="max-h-screen py-12 md:py-24 lg:py-12 xl:py-24 px-4 xl:p-24 space-y-12 overflow-scroll">
         <div className="space-y-2">
           <h1 className="text-4xl font-bold bg-gradient-to-b from-[#f87060] via-[#f75e4d] to-[#e84a5f] text-transparent bg-clip-text">

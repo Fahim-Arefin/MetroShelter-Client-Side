@@ -9,6 +9,15 @@ function useUserAPI() {
     const res = await axiosPublic.get("/users");
     return res.data;
   }
+  async function deleteUser(id) {
+    const res = await axiosPublic.delete(`/users/${id}`);
+    return res.data;
+  }
+
+  async function makeFroud(id) {
+    const res = await axiosPublic.patch(`/users/froud/${id}`);
+    return res.data;
+  }
 
   async function updateUserRole(data) {
     const { id, ...otherData } = data;
@@ -18,7 +27,7 @@ function useUserAPI() {
     return res.data;
   }
 
-  return { getAllUser, updateUserRole };
+  return { getAllUser, updateUserRole, deleteUser, makeFroud };
 }
 
 export default useUserAPI;

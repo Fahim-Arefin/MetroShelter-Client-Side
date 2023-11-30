@@ -8,6 +8,7 @@ import useAuth from "../hooks/useAuth";
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [isFocusedName, setIsFocusedName] = useState(false);
@@ -80,6 +81,9 @@ function App() {
   };
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Registration</title>
+      </Helmet>
       <div className="grid grid-cols-2 min-h-screen">
         <div className="col-span-2 lg:col-span-1 flex justify-center items-center">
           <div className="w-full p-4 md:p-0 md:w-[65%]  space-y-12">

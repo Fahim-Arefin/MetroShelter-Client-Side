@@ -14,6 +14,7 @@ import useWishListAPI from "../hooks/API/useWishListAPI";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 function PropertyDetails() {
   const { id } = useParams();
   const { fetchOneProperty } = usePropertyAPI();
@@ -79,6 +80,9 @@ function PropertyDetails() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Details</title>
+      </Helmet>
       {(isPending ||
         mutation.isPending ||
         checkDuplicateWishlist.isPending) && <SpinnerWithBlur />}

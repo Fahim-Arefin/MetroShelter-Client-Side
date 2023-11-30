@@ -13,6 +13,7 @@ import DataError from "../components/DataError";
 import DataNotFound from "../components/DataNotFound";
 import SpinnerWithBlur from "../components/SpinnerWithBlur";
 import Button from "../components/Button";
+import { Helmet } from "react-helmet-async";
 
 function MakeAnOffer() {
   const boxStyle = {
@@ -80,6 +81,9 @@ function MakeAnOffer() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Make Offer</title>
+      </Helmet>
       {isPending && <SpinnerWithBlur />}
       {error && <DataError errorMessage={error.message} />}
       {data?.length === 0 && <DataNotFound className="" />}

@@ -37,11 +37,13 @@ import PrivateRoutes from "./components/PrivateRoutes";
 import AdminRoute from "./components/AdminRoute";
 import AgentRoute from "./components/AgentRoute";
 import Payment from "./pages/Payment";
+import PageNotFound from "./components/PageNotFound";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <PageNotFound />,
     children: [
       {
         path: "/",
@@ -68,6 +70,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    errorElement: <PageNotFound />,
     children: [
       // user,admin,agent profile
       {
@@ -202,10 +205,12 @@ const router = createBrowserRouter([
   {
     path: "/registration",
     element: <Registration />,
+    errorElement: <PageNotFound />,
   },
   {
     path: "/login",
     element: <Login />,
+    errorElement: <PageNotFound />,
   },
 ]);
 

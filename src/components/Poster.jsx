@@ -1,6 +1,6 @@
 function Poster() {
   return (
-    <div className="container mx-auto  mt-12 mb-24">
+    <div className="container mx-auto  mt-12 mb-24 ">
       <div className="space-y-2 px-4 md:px-12 lg:px-24 mb-12">
         <h5 className="text-sm font-semibold text-[#b4b4b4] tracking-wide">
           SPECIAL FEATURED ALERT
@@ -31,7 +31,7 @@ function Poster() {
             </h1>
             <div className="flex flex-col mt-10 ">
               <h1 className="text-xl font-bold bg-gradient-to-t from-[#2a363a] to-[#2a363a] text-transparent bg-clip-text">
-                FROM NOW ON YOU CAN
+                FROM NOW ON
               </h1>
               <div className="space-y-3 mt-3 ">
                 <div className="space-x-3">

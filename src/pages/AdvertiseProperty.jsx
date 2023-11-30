@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import { ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 function ManageProperties() {
   const boxStyle = {
@@ -77,6 +78,9 @@ function ManageProperties() {
 
   return (
     <>
+      <Helmet>
+        <title>MetroShelter | Advertise Property</title>
+      </Helmet>
       <div className="h-screen py-12 px-4 xl:px-16 xl:py-24 overflow-y-scroll">
         <div className="space-y-2">
           <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-[#f87060] via-[#f75e4d] to-[#e84a5f] text-transparent bg-clip-text">
