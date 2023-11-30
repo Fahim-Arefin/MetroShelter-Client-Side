@@ -1,12 +1,22 @@
 // Import necessary libraries and components
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-// import "leaflet/dist/leaflet.css";
+import L from "leaflet"; // Import Leaflet
+import "leaflet/dist/leaflet.css";
 import "./Map.module.css"; //because there is only global css only
 import { useEffect } from "react";
 import useGeolocation from "../hooks/use-Geoloocation";
 import Button from "./Button";
 import ChangeCenter from "./ChangeCenter";
 import DetectMapClick from "./DetectMapClick";
+import customMarkerIcon from "/map-marker-icon.png";
+
+// Create a custom icon
+const customIcon = new L.Icon({
+  iconUrl: customMarkerIcon,
+  iconSize: [25, 41], // Adjust the size as needed
+  iconAnchor: [16, 32], // Adjust the anchor point if necessary
+  popupAnchor: [-2, -30], // Adjust the popup anchor if necessary
+});
 
 // Create the Map component
 const MyMap = ({ mapPosition, setMapPosition }) => {
@@ -55,7 +65,7 @@ const MyMap = ({ mapPosition, setMapPosition }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <Marker key={1} position={mapPosition}>
+        <Marker key={1} position={mapPosition} icon={customIcon}>
           <Popup>
             Add your location
             {/* {city.emoji} {city.cityName} */}

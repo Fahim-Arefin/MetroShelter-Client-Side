@@ -10,12 +10,7 @@ import { useState } from "react";
 function AllProperties() {
   const { fetchAllProperty } = usePropertyAPI();
 
-  const {
-    isPending,
-    // isError,
-    data,
-    error,
-  } = useQuery({
+  const { isPending, data, error } = useQuery({
     queryKey: ["properties", "verified"],
     queryFn: () => fetchAllProperty("verified"),
   });
@@ -23,12 +18,7 @@ function AllProperties() {
   const [searchTitle, setSearchTitle] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
-  // const filteredData = data
-  //   ? data.filter((property) =>
-  //       property.title.toLowerCase().includes(searchTitle.toLowerCase())
-  //     )
-  //   : [];
+  const [sortOption, setSortOption] = useState("none");
 
   const filteredData = data
     ? data.filter(
@@ -38,6 +28,18 @@ function AllProperties() {
           (!maxPrice || property.endPrice <= parseFloat(maxPrice))
       )
     : [];
+
+  let sortedData = [...filteredData];
+
+  if (sortOption === "asc") {
+    sortedData = sortedData.sort((a, b) => a.startPrice - b.startPrice);
+  } else if (sortOption === "desc") {
+    sortedData = sortedData.sort((a, b) => b.startPrice - a.startPrice);
+  }
+
+  const handleSortOptionChange = (option) => {
+    setSortOption(option);
+  };
 
   return (
     <>
@@ -61,7 +63,7 @@ function AllProperties() {
                 <input
                   type="text"
                   placeholder="search based on title"
-                  className=" input input-bordered input-error w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                   value={searchTitle}
                   onChange={(e) => setSearchTitle(e.target.value)}
                 />
@@ -70,7 +72,7 @@ function AllProperties() {
                 <input
                   type="number"
                   placeholder="min price"
-                  className=" input input-bordered input-error w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                   value={minPrice}
                   onChange={(e) => setMinPrice(e.target.value)}
                 />
@@ -79,15 +81,25 @@ function AllProperties() {
                 <input
                   type="number"
                   placeholder="max price"
-                  className=" input input-bordered input-error w-full max-w-xs"
+                  className="input input-bordered input-error w-full max-w-xs"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(e.target.value)}
                 />
               </div>
+              <div className="mt-6">
+                <select
+                  className="select select-error w-full max-w-xs"
+                  value={sortOption}
+                  onChange={(e) => handleSortOptionChange(e.target.value)}
+                >
+                  <option value="none">No Sort</option>
+                  <option value="asc">Sort Ascending</option>
+                  <option value="desc">Sort Descending</option>
+                </select>
+              </div>
             </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-12">
-              {filteredData.map((property) => (
+              {sortedData.map((property) => (
                 <AllPropertyCard key={property._id} property={property} />
               ))}
             </div>
