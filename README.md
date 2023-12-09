@@ -1,6 +1,6 @@
 # MetroShelter
 
-Methro Shelter The Real Estate Management Website is a comprehensive platform designed to streamline property management, buying, selling, and renting processes. With a focus on user-friendly design and robust features, this full-stack solution provides a seamless experience for both property owners and potential buyers or tenants.
+The Real Estate Management Website is a comprehensive solution for property management, enabling property owners to list their properties and users to seamlessly discover and engage with real estate opportunities. It includes separate dashboards for users, agents, and admins, with unique functionalities for each category. Regular users can make property purchases, agents can add properties upon admin approval, and admins have oversight over agent-uploaded properties, user accounts, and reviews. The admin also has the capability to detect fraudulent activity among agents, imposing restrictions on users engaging in such behavior. A notable feature is the integrated map system, allowing agents to easily select a property's location during upload for accurate presentation. Additionally, the implementation of the Stripe payment system streamlines financial transactions, ensuring a secure and efficient online payment experience for users.
 
 ## Table of Contents
 
