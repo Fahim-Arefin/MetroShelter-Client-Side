@@ -7,17 +7,20 @@ Methro Shelter The Real Estate Management Website is a comprehensive platform de
 1. [Overview](#overview) 🏡
 2. [Key Features](#key-features) 🔑
 3. [User Authentication](#user-authentication) 🔐
-4. [Property Listings](#property-listings) 🏠
-5. [Search and Filters](#search-and-filters) 🔍
-6. [Property Details](#property-details) ℹ️
-7. [User Dashboard](#user-dashboard) 📊
-8. [Booking and Transactions](#booking-and-transactions) 💳
-9. [Admin Panel](#admin-panel) 👩‍💼
-10. [Responsive Design](#responsive-design) 📱💻
-11. [Security Measures](#security-measures) 🔒
-12. [Code Quality](#code-quality) 🛠️
-13. [Contributing](#contributing) 🤝
-14. [License](#license) 📜
+4. [User Authorization](#user-authorization) 🔐
+5. [Integrated Map System ](#integrated-map-system) 🔐
+6. [Integrated Payment System ](#integrated-payment-system) 🔐
+7. [Property Listings](#property-listings) 🏠
+8. [Search and Filters](#search-and-filters) 🔍
+9. [Property Details](#property-details) ℹ️
+10. [User Dashboard](#user-dashboard) 📊
+11. [Booking and Transactions](#booking-and-transactions) 💳
+12. [Admin Panel](#admin-panel) 👩‍💼
+13. [Responsive Design](#responsive-design) 📱💻
+14. [Security Measures](#security-measures) 🔒
+15. [Code Quality](#code-quality) 🛠️
+16. [Contributing](#contributing) 🤝
+17. [License](#license) 📜
 
 ## Live Website
 
@@ -33,6 +36,22 @@ The Real Estate Management Website serves as a one-stop solution for property ma
 
 - Users can register and log in securely, ensuring a personalized experience.
 - Forgot password functionality for account recovery.
+
+### User Authorization
+
+- Used JWT token for authorize user
+- No one can Access other user info also without login user cant see his info also
+
+### Integrated Map System :
+
+- Added a cool feature: a map that lets agents easily pick where a property is located when they upload it.
+- This makes sure the property is shown accurately and looks good for potential buyers.
+- Users can locate any property through the map system.
+
+### Integrated Payment System :
+
+- Implemented and integrated Stripe payment system to streamline financial transactions
+- Enhancing user experience and ensuring secure and efficient online payments.
 
 ### Property Listings
 
