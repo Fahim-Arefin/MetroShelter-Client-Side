@@ -32,23 +32,23 @@ The Real Estate Management Website serves as a one-stop solution for property ma
 
 ## Key Features
 
-### User Authentication
+### User Authentication 
 
 - Users can register and log in securely, ensuring a personalized experience.
 - Forgot password functionality for account recovery.
 
-### User Authorization
+### User Authorization 
 
 - Used JWT token for authorize user
 - No one can Access other user info also without login user cant see his info also
 
-### Integrated Map System :
+### Integrated Map System 
 
 - Added a cool feature: a map that lets agents easily pick where a property is located when they upload it.
 - This makes sure the property is shown accurately and looks good for potential buyers.
 - Users can locate any property through the map system.
 
-### Integrated Payment System :
+### Integrated Payment System 
 
 - Implemented and integrated Stripe payment system to streamline financial transactions
 - Enhancing user experience and ensuring secure and efficient online payments.
