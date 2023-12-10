@@ -37,7 +37,7 @@ The Real Estate Management Website serves as a one-stop solution for property ma
 - Users can register and log in securely, ensuring a personalized experience.
 - Forgot password functionality for account recovery.
 
-### User Authorization
+### User Authorization with JWT
 
 - Used JWT token for authorize user
 - No one can Access other user info also without login user cant see his info also
