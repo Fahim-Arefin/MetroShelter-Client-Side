@@ -1,6 +1,6 @@
 # MetroShelter
 
-Methro Shelter The Real Estate Management Website is a comprehensive platform designed to streamline property management, buying, selling, and renting processes. With a focus on user-friendly design and robust features, this full-stack solution provides a seamless experience for both property owners and potential buyers or tenants.
+The Real Estate Management Website is a comprehensive solution for property management, enabling property owners to list their properties and users to seamlessly discover and engage with real estate opportunities. It includes separate dashboards for users, agents, and admins, with unique functionalities for each category. Regular users can make property purchases, agents can add properties upon admin approval, and admins have oversight over agent-uploaded properties, user accounts, and reviews. The admin also has the capability to detect fraudulent activity among agents, imposing restrictions on users engaging in such behavior. A notable feature is the integrated map system, allowing agents to easily select a property's location during upload for accurate presentation. Additionally, the implementation of the Stripe payment system streamlines financial transactions, ensuring a secure and efficient online payment experience for users.
 
 ## Table of Contents
 
@@ -32,23 +32,27 @@ The Real Estate Management Website serves as a one-stop solution for property ma
 
 ## Key Features
 
-### User Authentication
+### User Authentication 
 
 - Users can register and log in securely, ensuring a personalized experience.
 - Forgot password functionality for account recovery.
 
+<<<<<<< HEAD
 ### User Authorization with JWT
+=======
+### User Authorization 
+>>>>>>> 1adf98ad9926fafad3f27a7ffd29b4af64218673
 
 - Used JWT token for authorize user
 - No one can Access other user info also without login user cant see his info also
 
-### Integrated Map System :
+### Integrated Map System 
 
 - Added a cool feature: a map that lets agents easily pick where a property is located when they upload it.
 - This makes sure the property is shown accurately and looks good for potential buyers.
 - Users can locate any property through the map system.
 
-### Integrated Payment System :
+### Integrated Payment System 
 
 - Implemented and integrated Stripe payment system to streamline financial transactions
 - Enhancing user experience and ensuring secure and efficient online payments.
