@@ -24,7 +24,17 @@ The Real Estate Management Website is a comprehensive solution for property mana
 
 ## Live Website
 
-You can access the live website by following this [link](https://metroshelter-7a7d6.web.app/).
+- **You can access the live website by following this [link](https://metroshelter-7a7d6.web.app/).**
+
+#### Agent Credentials:
+
+- **Email:** `agent@gmail.com`
+- **Password:** `1234#F`
+
+#### Admin Credentials:
+
+- **Email:** `admin@gmail.com`
+- **Password:** `1234#F`
 
 ## Overview
 
